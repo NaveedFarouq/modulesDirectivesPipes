@@ -1,28 +1,35 @@
 import { 
   Directive, 
   ElementRef, 
-  HostListener } from '@angular/core';
+  HostListener, 
+  Input,
+  OnInit } from '@angular/core';
 
 @Directive({
   selector: '[appUiButton]'
 })
-export class UiButtonDirective {
-  constructor(private el: ElementRef) {
-    Object.assign(el.nativeElement.style, {
-      backgroundColor: '#ff00a6', 
-      padding: '7px 15px', 
-      fontSize: '16px', 
-      color: '#fff', 
-      border: 'none', 
+export class UiButtonDirective implements OnInit {
+  @Input() bgColor: string;
+  @Input() hoverBgColor: string;
+  constructor(private el: ElementRef) {}
+
+  ngOnInit() {
+    Object.assign(this.el.nativeElement.style, {
+      backgroundColor: this.bgColor || '#ff00a6',
+      padding: '7px 15px',
+      fontSize: '16px',
+      color: '#fff',
+      border: 'none',
       borderRadius: '4px'
     })
   }
 
   @HostListener('mouseenter') onMouseEnter() {
-    this.el.nativeElement.style.backgroundColor = '#000';
+    console.log(this.bgColor);
+    this.el.nativeElement.style.backgroundColor = this.hoverBgColor || '#000';
   }
  
   @HostListener('mouseleave') onMouseLeave() {
-    this.el.nativeElement.style.backgroundColor = '#ff00a6';
+    this.el.nativeElement.style.backgroundColor = this.bgColor || '#ff00a6';
   }
 }
