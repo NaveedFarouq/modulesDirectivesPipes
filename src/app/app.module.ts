@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { UiButtonDirective } from './ui-button.directive';
 import { WhenDirective } from './when.directive';
 import { ReversePipe } from './reverse.pipe';
+import { BlogService } from './blog.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { ReversePipe } from './reverse.pipe';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [BlogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
