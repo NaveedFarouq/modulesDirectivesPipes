@@ -1,3 +1,14 @@
 <div class="container">
   <button appUiButton bgColor="red">Click!!</button>
 </div>
+
+<h3 
+  style="text-align:center" 
+  *appWhen="toggle"
+ >Hi, cute directive</h3>
+
+<button 
+  appUiButton 
+  bgColor="red" 
+  (click)="updateToggle()"
+>Click!!</button>
