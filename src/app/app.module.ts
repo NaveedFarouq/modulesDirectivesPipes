@@ -7,17 +7,24 @@ import { UiButtonDirective } from './ui-button.directive';
 import { WhenDirective } from './when.directive';
 import { ReversePipe } from './reverse.pipe';
 import { BlogService } from './blog.service';
+import { HomeComponent } from './home/home.component';
+import { PostComponent } from './post/post.component';
+import { routes } from './route';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
     UiButtonDirective,
     WhenDirective,
-    ReversePipe
+    ReversePipe,
+    HomeComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [BlogService],
   bootstrap: [AppComponent]
