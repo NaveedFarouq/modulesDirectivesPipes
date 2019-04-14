@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { UiButtonDirective } from './ui-button.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UiButtonDirective
   ],
   imports: [
     BrowserModule,
